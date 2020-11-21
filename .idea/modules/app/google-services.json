@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "632159160344",
+    "firebase_url": "https://mvvm-spotify-clone-d52eb.firebaseio.com",
+    "project_id": "mvvm-spotify-clone-d52eb",
+    "storage_bucket": "mvvm-spotify-clone-d52eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632159160344:android:d7d54304f704de17979b6d",
+        "android_client_info": {
+          "package_name": "com.example.mvvmspotifyclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632159160344-7ussk276iubmfd49tldi3cnodtntkql3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mvvmspotifyclone",
+            "certificate_hash": "076f055d237b3f1f5f6a39a3fc57526071feb419"
+          }
+        },
+        {
+          "client_id": "632159160344-tinjf7h3407qh0cua8n3pcn877rs96vb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK0LtcW_GWvm4AtxmwjPCUbRARg5L0zwE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "632159160344-tinjf7h3407qh0cua8n3pcn877rs96vb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
