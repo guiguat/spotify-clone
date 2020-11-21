@@ -1,4 +1,9 @@
 package com.example.mvvmspotifyclone.data.entities
 
-class Song {
-}
+data class Song (
+    val mid: String = "",
+    val title: String = "",
+    val subtitle: String = "",
+    val songUrl: String = "",
+    val imgUrl: String = ""
+)
