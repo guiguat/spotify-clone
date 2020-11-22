@@ -1,24 +1,18 @@
 package com.example.mvvmspotifyclone.exoplayer
 
 import android.app.PendingIntent
-import android.content.Intent
 import android.os.Bundle
 import android.support.v4.media.MediaBrowserCompat
-import android.support.v4.media.MediaDescriptionCompat
-import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.MediaSessionCompat
 import androidx.media.MediaBrowserServiceCompat
-import com.example.mvvmspotifyclone.data.util.Constants.MEDIA_ROOT_ID
-import com.example.mvvmspotifyclone.exoplayer.callbacks.MusicPlayerEventListener
-import com.example.mvvmspotifyclone.exoplayer.callbacks.MusicPlayerNotificationListener
-import com.example.mvvmspotifyclone.exoplayer.callbacks.MusicPlayerPreparer
-import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector
-import com.google.android.exoplayer2.ext.mediasession.TimelineQueueNavigator
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancel
 import javax.inject.Inject
 
 private const val SERVICE_TAG = "MusicService"
@@ -105,6 +99,8 @@ class MusicService : MediaBrowserServiceCompat() {
     override fun onTaskRemoved(rootIntent: Intent?) {
         super.onTaskRemoved(rootIntent)
         exoPlayer.stop()
+        mediaSessionConnector = MediaSessionConnector(mediaSession)
+        mediaSessionConnector.setPlayer(exoPlayer)
     }
 
     override fun onDestroy() {
