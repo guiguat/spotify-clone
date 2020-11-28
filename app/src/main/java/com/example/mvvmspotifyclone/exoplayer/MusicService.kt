@@ -106,35 +106,6 @@ class MusicService : MediaBrowserServiceCompat() {
     override fun onTaskRemoved(rootIntent: Intent?) {
         super.onTaskRemoved(rootIntent)
         exoPlayer.stop()
-        mediaSessionConnector = MediaSessionConnector(mediaSession)
-        mediaSessionConnector.setPlaybackPreparer(musicPlaybackPreparer)
-        mediaSessionConnector.setPlayer(exoPlayer)
-        musicPlayerEventListener = MusicPlayerEventListener(this)
-        exoPlayer.addListener(musicPlayerEventListener)
-        musicNotificationManager.showNotification(exoPlayer)
-    }
-
-    private inner class MusicQueueNavigator: TimelineQueueNavigator(mediaSession){
-        override fun getMediaDescription(player: Player, windowIndex: Int): MediaDescriptionCompat {
-            return firebaseMusicSource.songs[windowIndex].description
-        }
-
-    }
-
-    private fun preparePlayer(
-        songs: List<MediaMetadataCompat>,
-        itemToPlay: MediaMetadataCompat?,
-        playNow: Boolean
-    ){
-        val curSongIndex = if(curPlayingSong == null) 0 else songs.indexOf(itemToPlay)
-        exoPlayer.prepare(firebaseMusicSource.asMediaSource(datasourceFactory))
-        exoPlayer.seekTo(curSongIndex, 0L)
-        exoPlayer.playWhenReady = playNow
-    }
-
-    override fun onTaskRemoved(rootIntent: Intent?) {
-        super.onTaskRemoved(rootIntent)
-        exoPlayer.stop()
     }
 
     override fun onDestroy() {
