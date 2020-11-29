@@ -1,4 +1,4 @@
-package com.example.mvvmspotifyclone.ui.fragments
+package com.example.mvvmspotifyclone.ui.viewmodels
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
